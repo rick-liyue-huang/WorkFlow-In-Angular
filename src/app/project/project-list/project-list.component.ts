@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewProjectComponent} from '../new-project/new-project.component';
+import {InviteComponent} from '../invite/invite.component';
 
 @Component({
   selector: 'app-project-list',
@@ -31,6 +32,10 @@ export class ProjectListComponent implements OnInit {
   openNewProject() {
     const dialogRef = this.dialog.open(NewProjectComponent, {data: {dark: true}});
     dialogRef.afterClosed().subscribe(result => console.log(result));
+  }
+
+  launchInviteDialog() {
+    const dialogRef = this.dialog.open(InviteComponent);
   }
 
 }
