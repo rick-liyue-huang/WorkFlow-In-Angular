@@ -3,7 +3,9 @@
   *ngFor="let project of projects"
   [item]="project"
   class="card"
+  (onEdit)="launchEditProject()"
   (onInvite)="launchInviteDialog()"
+  (onDelete)="launchConfirmDialog()"
 >
 
 </app-project-item>
