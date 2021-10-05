@@ -24,4 +24,5 @@ export class NewProjectComponent implements OnInit {
     this.dialogRef.close('I received your message');
   }
 
+
 }
