@@ -13,6 +13,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatOptionModule} from '@angular/material/core';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MatOptionModule} from '@angular/material/core';
     MatDialogModule,
     MatAutocompleteModule,
     MatOptionModule,
+    MatMenuModule,
   ],
   exports: [
     CommonModule,
@@ -48,6 +50,7 @@ import {MatOptionModule} from '@angular/material/core';
     MatDialogModule,
     MatAutocompleteModule,
     MatOptionModule,
+    MatMenuModule,
   ]
 })
 export class SharedModule { }

@@ -30,7 +30,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   openNewProject() {
-    const dialogRef = this.dialog.open(NewProjectComponent, {data: {dark: true}});
+    const dialogRef = this.dialog.open(NewProjectComponent, {data: {dark: false}});
     dialogRef.afterClosed().subscribe(result => console.log(result));
   }
 
