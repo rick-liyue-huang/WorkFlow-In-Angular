@@ -26,4 +26,5 @@ export const loadSvgResource = (iconRegister: MatIconRegistry, sanitizer: DomSan
   iconRegister.addSvgIcon('move', sanitizer.bypassSecurityTrustResourceUrl(`${iconDir}/move.svg`));
   iconRegister.addSvgIcon('add', sanitizer.bypassSecurityTrustResourceUrl(`${iconDir}/add.svg`));
   iconRegister.addSvgIcon('delete', sanitizer.bypassSecurityTrustResourceUrl(`${iconDir}/delete.svg`));
+  iconRegister.addSvgIcon('unassigned', sanitizer.bypassSecurityTrustResourceUrl(`${avatarDir}/unassigned.svg`));
 }
