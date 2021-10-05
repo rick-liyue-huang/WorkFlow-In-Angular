@@ -1,1 +1,25 @@
-<p>sidebar works!</p>
+
+<mat-nav-list dense>
+  <h3 mat-subheader>Project</h3>
+  <mat-list-item>
+    <mat-icon mat-list-icon svgIcon="projects"></mat-icon>
+    <span mat-line>Project Home</span>
+    <span mat-line mat-subheader>Check Projects</span>
+  </mat-list-item>
+  <h3 mat-subheader>Calendar</h3>
+  <mat-list-item>
+    <mat-icon mat-list-icon svgIcon="month"></mat-icon>
+    <span mat-line>Month View</span>
+    <span mat-line mat-subheader>Month Projects</span>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon mat-list-icon svgIcon="week"></mat-icon>
+    <span mat-line>Week View</span>
+    <span mat-line mat-subheader>Week Projects</span>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon mat-list-icon [svgIcon]="today"></mat-icon>
+    <span mat-line>Day View</span>
+    <span mat-line mat-subheader>Day Projects</span>
+  </mat-list-item>
+</mat-nav-list>

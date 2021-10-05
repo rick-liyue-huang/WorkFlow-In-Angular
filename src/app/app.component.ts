@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'workflow-angular';
+  lightTheme = true;
+
+  switchTheme(light: boolean) {
+    light = !light;
+    this.lightTheme = light
+  }
 }
