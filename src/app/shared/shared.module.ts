@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatListModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
   ],
   exports: [
     CommonModule,
@@ -38,7 +40,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatListModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
   ]
 })
 export class SharedModule { }
