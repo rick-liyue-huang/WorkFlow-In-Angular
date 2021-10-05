@@ -9,6 +9,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatButtonModule,
     MatListModule,
     MatSlideToggleModule,
+    MatGridListModule
   ],
   exports: [
     CommonModule,
@@ -36,6 +38,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatButtonModule,
     MatListModule,
     MatSlideToggleModule,
+    MatGridListModule
   ]
 })
 export class SharedModule { }

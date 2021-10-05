@@ -1,0 +1,53 @@
+<form action="">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field floatLabel="auto" hintLabel="required input" appearance="fill" class="full-wide">
+        <input matInput type="email" placeholder="your email" >
+      </mat-form-field>
+      <br>
+      <mat-form-field floatLabel="auto" hintLabel="required input" appearance="fill" class="full-wide">
+        <input matInput type="text" placeholder="your username" >
+      </mat-form-field>
+      <br>
+      <mat-form-field floatLabel="auto" appearance="fill" hintLabel="required input" class="full-wide">
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="your password">
+        <button
+          mat-icon-button matSuffix
+          (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <mat-form-field floatLabel="auto" appearance="fill" hintLabel="required input" class="full-wide">
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="confirm your password">
+        <button
+          mat-icon-button matSuffix
+          (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <mat-grid-list cols="8" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let item of items">
+          <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <br>
+      <button type="button" mat-raised-button color="primary">Register</button>
+      <br>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+      <p>Have an account? <a routerLink="/login">Login</a></p>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+
+
