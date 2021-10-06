@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {OverlayContainer} from '@angular/cdk/overlay';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import {OverlayContainer} from '@angular/cdk/overlay';
 })
 export class AppComponent {
   lightTheme = true;
+  squareState!: string;
 
   constructor(private overlayContainer: OverlayContainer) {
   }

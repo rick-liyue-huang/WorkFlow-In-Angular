@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {MoveTasksComponent} from '../move-tasks/move-tasks.component';
 import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
 import {NewEditTaskListComponent} from '../new-edit-task-list/new-edit-task-list.component';
+import {slidToRight} from '../../animation/router.anim';
 
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
-  styleUrls: ['./task-home.component.scss']
+  styleUrls: ['./task-home.component.scss'],
+  animations: [
+    slidToRight
+  ]
 })
 export class TaskHomeComponent implements OnInit {
 
@@ -107,6 +111,8 @@ export class TaskHomeComponent implements OnInit {
     }
 
   ];
+
+  @HostBinding('@routeAnim') state: any;
 
   constructor(private dialog: MatDialog) { }
 

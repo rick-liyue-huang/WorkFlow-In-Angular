@@ -3,7 +3,7 @@
   {'my-light-theme': true, 'my-dark-theme': false} :
   {'my-light-theme': false, 'my-dark-theme': true}">
   <mat-drawer #drawer mode="over">
-    <app-sidebar></app-sidebar>
+    <app-sidebar (navClick)="drawer.toggle()"></app-sidebar>
   </mat-drawer>
   <div class="site">
     <header>
