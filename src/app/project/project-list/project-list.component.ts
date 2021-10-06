@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewProjectComponent} from '../new-project/new-project.component';
 import {InviteComponent} from '../invite/invite.component';
@@ -13,7 +13,8 @@ import {listAnim} from '../../animation/list.anim';
   animations: [
     slidToRight,
     listAnim
-  ]
+  ],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
 
@@ -34,7 +35,11 @@ export class ProjectListComponent implements OnInit {
 
   @HostBinding('@routeAnim') state: any;
 
-  constructor(private dialog: MatDialog) {
+  constructor(
+    private dialog: MatDialog,
+    //  match  with changeDetection: ChangeDetectionStrategy.OnPush
+    // private cd: ChangeDetectorRef
+  ) {
   }
 
   ngOnInit(): void {
@@ -47,7 +52,9 @@ export class ProjectListComponent implements OnInit {
       this.projects = [...this.projects,
         {id: 3, name: 'new project', desc: 'new desc', coverImg: 'assets/img/covers/1.jpg'},
         {id: 4, name: 'new project3', desc: 'new desc3', coverImg: 'assets/img/covers/6.jpg'}
-      ]
+      ];
+      //  match  with changeDetection: ChangeDetectionStrategy.OnPush
+      // this.cd.markForCheck();
     });
   }
 
@@ -63,8 +70,10 @@ export class ProjectListComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {data: {title: 'Delete Project', content: 'Confirm Delete?'}});
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.projects = this.projects.filter(p => p.id !== project.id)
+      this.projects = this.projects.filter(p => p.id !== project.id);
+
+      //  match  with changeDetection: ChangeDetectionStrategy.OnPush
+      // this.cd.markForCheck();
     });
   }
-
 }

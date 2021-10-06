@@ -32,6 +32,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SidebarComponent,
     AppRoutingModule,
     BrowserAnimationsModule,
+  ],
+  providers: [
+    {provide: 'BASE_CONFIG', useValue: 'http://localhost:4200'}
   ]
 })
 // here we only need load once, and import Optional and SkipSelf to avoid looping loading and load firstly configuration

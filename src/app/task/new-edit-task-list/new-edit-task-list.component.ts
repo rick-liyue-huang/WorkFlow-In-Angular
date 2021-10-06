@@ -1,10 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new-edit-task-list',
   templateUrl: './new-edit-task-list.component.html',
-  styleUrls: ['./new-edit-task-list.component.scss']
+  styleUrls: ['./new-edit-task-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewEditTaskListComponent implements OnInit {
 

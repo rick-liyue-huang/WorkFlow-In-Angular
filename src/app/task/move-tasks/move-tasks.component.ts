@@ -1,10 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-move-tasks',
   templateUrl: './move-tasks.component.html',
-  styleUrls: ['./move-tasks.component.scss']
+  styleUrls: ['./move-tasks.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoveTasksComponent implements OnInit {
 
