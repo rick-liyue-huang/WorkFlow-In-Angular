@@ -10,7 +10,6 @@ import {itemAnim} from '../../animation/item.anim';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class TaskItemComponent implements OnInit {
 
   @Input() item: any;

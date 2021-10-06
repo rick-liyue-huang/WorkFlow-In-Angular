@@ -120,10 +120,6 @@ export class TaskHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openNewProject() {
-
-  }
-
   launchNewTaskDialog() {
     const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: 'New Task'}});
   }
@@ -149,6 +145,19 @@ export class TaskHomeComponent implements OnInit {
   launchNewListDialog() {
     const dialogRef = this.dialog.open(NewEditTaskListComponent, {data: {title: 'New List'}});
     dialogRef.afterClosed().subscribe(result => console.log(result));
+  }
+
+  handleMove(srcData: any, list: any) {
+    switch (srcData.tag) {
+      case 'task-item':
+        console.log('handle item');
+        break;
+      case 'task-list':
+        console.log('handle list');
+        break;
+      default:
+        break;
+    }
   }
 
 }

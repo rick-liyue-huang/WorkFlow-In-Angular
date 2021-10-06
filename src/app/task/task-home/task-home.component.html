@@ -1,5 +1,16 @@
 <div class="task-lists">
-  <app-task-list *ngFor="let list of lists" class="list-container">
+  <app-task-list
+    class="list-container"
+    appDropDirective
+    [dragEnterClass]="'drag-enter'"
+    [dropTags]="['task-item', 'task-list']"
+    [dragTag]="'task-list'"
+    [draggedClass]="'drag-start'"
+    [dragData]="list"
+    [appDragDirective]="true"
+    (dropped)="handleMove($event, list)"
+    *ngFor="let list of lists"
+  >
     <app-task-header
       [header]="list.name"
       (newTask)="launchNewTaskDialog()"

@@ -7,6 +7,10 @@
     'priority-emergency': item.priority === 1
   }"
   (click)="onItemClick()"
+  [appDragDirective]="true"
+  [draggedClass]="'drag-start'"
+  [dragTag]="'task-item'"
+  [dragData]="item"
 >
   <mat-checkbox
     class="completion-status"

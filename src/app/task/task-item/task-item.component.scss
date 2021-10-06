@@ -75,3 +75,8 @@ mat-icon.avatar {
 :host {
   width: 100%;
 }
+
+.drag-start {
+  opacity: 0.5;
+  border: 2px dashed red;
+}

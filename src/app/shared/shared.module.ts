@@ -20,6 +20,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {DirectiveModule} from '../directive/directive.module';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
+    DirectiveModule,
   ],
   exports: [
     CommonModule,
@@ -71,6 +73,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
+    DirectiveModule
   ]
 })
 export class SharedModule { }
