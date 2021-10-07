@@ -1,0 +1,52 @@
+
+<mat-form-field floatLabel="auto" hintLabel="required input" appearance="fill" class="full-wide" style="padding: 0 5px">
+  <div class="quick-task">
+    <input
+      matInput
+      type="text"
+      placeholder="create one task quickly"
+      [(ngModel)]="desc"
+    >
+    <button matsuffix mat-icon-button type="button" (click)="sendQuickTask()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<form #f="ngForm"  (ngSubmit)="onSubmit(f,  $event)">
+  <mat-form-field floatLabel="auto" hintLabel="required input" appearance="fill" class="full-wide">
+    <input
+      matInput
+      type="email"
+      style="width: 20em"
+      placeholder="create one task quickly"
+      [(ngModel)]="desc"
+      name="desc"
+      required
+    >
+    <button matsuffix mat-icon-button type="submit">
+      <mat-icon>send</mat-icon>
+    </button>
+    <mat-error>Cannot be null</mat-error>
+  </mat-form-field>
+</form>
+
+<div>
+  form data: {{f.value | json}}
+</div>
+
+<div>
+  form validation: {{f.valid | json}}
+</div>-->

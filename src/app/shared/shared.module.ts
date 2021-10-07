@@ -21,6 +21,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import {DirectiveModule} from '../directive/directive.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -50,6 +51,8 @@ import {DirectiveModule} from '../directive/directive.module';
     MatRadioModule,
     MatSelectModule,
     DirectiveModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CommonModule,
@@ -73,7 +76,9 @@ import {DirectiveModule} from '../directive/directive.module';
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
-    DirectiveModule
+    DirectiveModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

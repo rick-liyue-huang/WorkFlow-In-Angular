@@ -8,6 +8,7 @@ import {TaskListComponent} from './task-list/task-list.component';
 import {TaskItemComponent} from './task-item/task-item.component';
 import {MoveTasksComponent} from './move-tasks/move-tasks.component';
 import { NewEditTaskListComponent } from './new-edit-task-list/new-edit-task-list.component';
+import { QuickTaskComponent } from './quick-task/quick-task.component';
 
 
 
@@ -19,7 +20,8 @@ import { NewEditTaskListComponent } from './new-edit-task-list/new-edit-task-lis
     TaskListComponent,
     TaskItemComponent,
     MoveTasksComponent,
-    NewEditTaskListComponent
+    NewEditTaskListComponent,
+    QuickTaskComponent
   ],
   imports: [
     SharedModule,
