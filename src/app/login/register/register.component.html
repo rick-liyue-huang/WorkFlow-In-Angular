@@ -1,19 +1,19 @@
-<form action="">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field floatLabel="auto" hintLabel="required input" appearance="fill" class="full-wide">
-        <input matInput type="email" placeholder="your email" >
+        <input matInput type="email" placeholder="your email" formControlName="email">
       </mat-form-field>
       <br>
       <mat-form-field floatLabel="auto" hintLabel="required input" appearance="fill" class="full-wide">
-        <input matInput type="text" placeholder="your username" >
+        <input matInput type="text" placeholder="your username" formControlName="name">
       </mat-form-field>
       <br>
       <mat-form-field floatLabel="auto" appearance="fill" hintLabel="required input" class="full-wide">
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder="your password">
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="your password" formControlName="password">
         <button
           mat-icon-button matSuffix
           (click)="hide = !hide" [attr.aria-label]="'Hide password'"
@@ -24,7 +24,7 @@
       </mat-form-field>
       <br>
       <mat-form-field floatLabel="auto" appearance="fill" hintLabel="required input" class="full-wide">
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder="confirm your password">
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="confirm your password" formControlName="repeat">
         <button
           mat-icon-button matSuffix
           (click)="hide = !hide" [attr.aria-label]="'Hide password'"
@@ -34,14 +34,21 @@
         </button>
       </mat-form-field>
       <br>
-      <mat-grid-list cols="8" rowHeight="2:1">
+      <app-image-list-select
+        [useSvgIcon]="true"
+        [cols]="8"
+        [title]="'select avatar '"
+        [items]="items"
+        formControlName="avatar"
+        [style]="{'height': '120px'}"
+      ></app-image-list-select>
+      <!--<mat-grid-list cols="8" rowHeight="2:1">
         <mat-grid-tile *ngFor="let item of items">
           <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
         </mat-grid-tile>
-      </mat-grid-list>
+      </mat-grid-list>-->
       <br>
-      <button type="button" mat-raised-button color="primary">Register</button>
-      <br>
+      <button type="submit" mat-raised-button color="primary">Register</button>
     </mat-card-content>
     <mat-card-actions class="text-right">
       <p>Have an account? <a routerLink="/login">Login</a></p>
