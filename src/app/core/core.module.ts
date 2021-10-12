@@ -10,6 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatButtonModule} from '@angular/material/button';
 import {loadSvgResource} from '../utils/svg.utils';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import '../utils/debug.utils';
 
 
 

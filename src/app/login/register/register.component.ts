@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  onSubmit() {
+  onSubmit({value, valid}: {value: any, valid: any}, ev:  Event) {
 
   }
 
