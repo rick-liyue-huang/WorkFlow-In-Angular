@@ -34,7 +34,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
   ],
   providers: [
-    {provide: 'BASE_CONFIG', useValue: 'http://localhost:4200'}
+    {provide: 'BASE_CONFIG', useValue: {
+      uri: 'http://localhost:3000'
+      }
+    }
   ]
 })
 // here we only need load once, and import Optional and SkipSelf to avoid looping loading and load firstly configuration

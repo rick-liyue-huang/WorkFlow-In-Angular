@@ -1,4 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
+import {QuotesService} from './quotes.service';
 
 
 
@@ -7,7 +8,9 @@ export class ServicesModule {
   static forRoot(): ModuleWithProviders<any> {
     return {
       ngModule: ServicesModule,
-      providers: []
+      providers: [
+        QuotesService
+      ]
     }
 
   }

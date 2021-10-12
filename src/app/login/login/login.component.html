@@ -36,15 +36,15 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>
-        You need to know something
+        You need to know something..
       </mat-card-title>
       <mat-card-subtitle>
-        some sentences .....
+        {{quote.en}}
       </mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="/assets/img/quote_fallback.jpg" alt="">
+    <img mat-card-image [src]="quote.pic" alt="picture">
     <mat-card-content>
-      Satisfaction is lies in the effort, not the ......
+      {{quote.en}}
     </mat-card-content>
   </mat-card>
 </form>
