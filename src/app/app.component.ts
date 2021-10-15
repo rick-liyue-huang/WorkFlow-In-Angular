@@ -9,8 +9,6 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
 })
 export class AppComponent {
 
-  title = 'hello angular'
-
   constructor() {}
 
 }
