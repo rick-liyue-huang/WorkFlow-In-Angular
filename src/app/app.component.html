@@ -1,5 +1,7 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" #sidenav>Sidenav content</mat-sidenav>
+  <mat-sidenav mode="over" #sidenav>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
   <div class="site">
     <header>
       <app-header (toggle)="sidenav.toggle()"></app-header>
