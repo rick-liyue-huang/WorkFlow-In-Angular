@@ -1,16 +1,10 @@
-mat-drawer {
-  width: 300px;
-}
-
-
-mat-drawer-container.my-dark-theme {
+mat-sidenav-container.my-dark-theme {
   background-color: #333;
 }
 
-mat-drawer-container.my-light-theme {
+mat-sidenav-container.my-light-theme {
   background-color: #fff;
 }
-
 
 mat-sidenav {
   width: 15rem;

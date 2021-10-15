@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {MatSlideToggleChange} from '@angular/material/slide-toggle';
 
 
 @Component({
@@ -8,7 +9,9 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() darkTheme = false;
   @Output() toggle = new EventEmitter<void>();
+  @Output() toggleDarkTheme = new EventEmitter<boolean>();
 
   // move the svg loading to core module
   /*constructor(iconReg: MatIconRegistry, st: DomSanitizer) {
@@ -23,6 +26,10 @@ export class HeaderComponent implements OnInit {
 
   openSidebar() {
     this.toggle.emit();
+  }
+
+  onChange(checked: boolean) {
+    this.toggleDarkTheme.emit(checked);
   }
 
 }

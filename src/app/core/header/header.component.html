@@ -4,4 +4,7 @@
     <mat-icon svgIcon="menu"></mat-icon>
   </button>
   <span>Workflow By Angular</span>
+  <span class="fill-remaining-space"></span>
+<!--  <mat-slide-toggle ()="">Dark Mode</mat-slide-toggle>-->
+  <mat-slide-toggle [ngModel]="darkTheme" (ngModelChange)="onChange($event)">Dark Mode</mat-slide-toggle>
 </mat-toolbar>

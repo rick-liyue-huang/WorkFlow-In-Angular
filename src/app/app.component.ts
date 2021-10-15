@@ -1,6 +1,5 @@
-import {Component, Inject, Injector, ReflectiveInjector} from '@angular/core';
-import {OverlayContainer} from '@angular/cdk/overlay';
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +8,12 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
 })
 export class AppComponent {
 
+  darkTheme = false;
+
   constructor() {}
+
+  switchTheme(dark: boolean) {
+    this.darkTheme = dark;
+  }
 
 }

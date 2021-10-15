@@ -8,6 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {FormsModule} from '@angular/forms';
 
 // import some shared modules and exports them
 
@@ -15,6 +17,7 @@ import {MatListModule} from '@angular/material/list';
   declarations: [],
   imports: [
     CommonModule,
+    FormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -23,9 +26,11 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatInputModule,
     MatListModule,
+    MatSlideToggleModule,
   ],
   exports: [
     CommonModule,
+    FormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -34,6 +39,7 @@ import {MatListModule} from '@angular/material/list';
     MatCardModule,
     MatInputModule,
     MatListModule,
+    MatSlideToggleModule,
   ]
 })
 export class SharedModule { }
