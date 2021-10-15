@@ -13,6 +13,10 @@ mat-card {
   position: relative;
 }
 
+mat-card-title {
+  display: flex;
+}
+
 mat-card-actions {
   position: absolute;
   bottom: 2rem;
@@ -33,7 +37,10 @@ mat-card-actions {
   text-align: right;
 }
 
-
+.login {
+  text-decoration: none;
+  color: yellow;
+}
 
 
 

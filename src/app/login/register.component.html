@@ -1,6 +1,10 @@
 <form class="container">
   <mat-card>
-    <mat-card-title>Register</mat-card-title>
+    <mat-card-title>
+      <span class="fill-remaining-space"></span>
+      Register
+      <span class="fill-remaining-space"></span>
+    </mat-card-title>
     <mat-card-content>
       <mat-form-field color="accent" floatLabel="auto" hintLabel="email required" class="full-wide" >
         <input matInput type="email" placeholder="your Email address" />
@@ -31,7 +35,7 @@
 
     </mat-card-content>
     <mat-card-actions class="text-right">
-      <p>Have an account? <a routerLink="/login">Login</a></p>
+      <p>Have an account? <button mat-button  routerLink="/login">Login</button></p>
     </mat-card-actions>
   </mat-card>
 
