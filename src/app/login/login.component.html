@@ -1,15 +1,39 @@
+<form class="container">
+  <mat-card>
+    <mat-card-title>Login: </mat-card-title>
+    <mat-card-content>
+      <mat-form-field color="accent" floatLabel="auto" hintLabel="email required" class="full-wide" >
+        <input matInput type="email" placeholder="your Email address" />
+        <!--      <mat-hint>email must need</mat-hint>-->
+        <mat-error>email format is wrong</mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" floatLabel="auto" hintLabel="password required" class="full-wide">
+        <input matInput type="password" placeholder="your password" />
+      </mat-form-field>
+      <br><br>
+      <div class="btn-container">
+        <span class="fill-remaining-space"></span>
+        <button class="full-wide login-button" mat-raised-button type="button">Login</button>
+        <span class="fill-remaining-space"></span>
+      </div>
 
-<mat-card>
-  <mat-card-title>Login: </mat-card-title>
-  <mat-card-content>
-    <mat-form-field color="accent" floatLabel="auto" hintLabel="email required">
-      <input matInput type="email" placeholder="your Email address" />
-<!--      <mat-hint>email must need</mat-hint>-->
-      <mat-error>email format is wrong</mat-error>
-    </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions>
-    <p>Haven't an account? <a href="">Register</a></p>
-    <p>Forget password? <a href="">Get back Password</a></p>
-  </mat-card-actions>
-</mat-card>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+      <p>Haven't an account? <a href="">Register</a></p>
+      <p>Forget password? <a href="">Get back Password</a></p>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>
+      Something you need to know..
+    </mat-card-title>
+    <mat-card-subtitle>
+      here has some sentences to read
+    </mat-card-subtitle>
+    <img mat-card-image src="/assets/img/quote_fallback.jpg" alt="" />
+    <mat-card-content>
+      here has some sentences to read
+    </mat-card-content>
+  </mat-card>
+</form>

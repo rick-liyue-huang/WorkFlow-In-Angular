@@ -9,6 +9,7 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
+  // TODO: maybe adjust the login card size by rem in .html
   ngOnInit(): void {
   }
 
