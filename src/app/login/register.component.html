@@ -1,0 +1,38 @@
+<form class="container">
+  <mat-card>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-content>
+      <mat-form-field color="accent" floatLabel="auto" hintLabel="email required" class="full-wide" >
+        <input matInput type="email" placeholder="your Email address" />
+        <mat-error>email format is wrong</mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
+        <input matInput type="text" placeholder="your username" />
+        <mat-error>email format is wrong</mat-error>
+      </mat-form-field>
+      <mat-form-field color="accent" floatLabel="auto" hintLabel="password required" class="full-wide">
+        <input matInput type="password" placeholder="your password" />
+      </mat-form-field>
+      <mat-form-field color="accent" floatLabel="auto" hintLabel="confirm password required" class="full-wide">
+        <input matInput type="password" placeholder="confirm your password" />
+      </mat-form-field>
+      <mat-grid-list cols="8" rowHeight="5rem">
+        <mat-grid-tile *ngFor="let item of items">
+          <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+      <br><br>
+      <div class="btn-container">
+        <span class="fill-remaining-space"></span>
+        <button class="full-wide login-button" mat-raised-button color="accent" type="button">Regist</button>
+        <span class="fill-remaining-space"></span>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+      <p>Have an account? <a routerLink="/login">Login</a></p>
+    </mat-card-actions>
+  </mat-card>
+
+</form>

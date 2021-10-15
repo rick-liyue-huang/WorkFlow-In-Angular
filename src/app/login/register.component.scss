@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+mat-card {
+  width: 30rem;
+  height: 36rem;
+  position: relative;
+}
+
+mat-card-actions {
+  position: absolute;
+  bottom: 2rem;
+  right: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.login-button {
+  width: 10rem;
+}
+
+.text-right {
+  margin: 10px;
+  text-align: right;
+}
+
+
+
+
+
+
+
+
+
+.avatar {
+  overflow: hidden;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 12px;
+}

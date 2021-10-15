@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 // import some shared modules and exports them
 
@@ -27,6 +28,7 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatListModule,
     MatSlideToggleModule,
+    MatGridListModule,
   ],
   exports: [
     CommonModule,
@@ -40,6 +42,7 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatListModule,
     MatSlideToggleModule,
+    MatGridListModule,
   ]
 })
 export class SharedModule { }
