@@ -8,18 +8,9 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  lightTheme = true;
-  squareState!: string;
 
-  constructor(
-    private overlayContainer: OverlayContainer,
-    @Inject('BASE_CONFIG') config: string
-  ) {
-    console.log(config);
-  }
+  title = 'hello angular'
 
-  switchTheme(dark: boolean) {
-    this.lightTheme = !dark;
-    this.overlayContainer.getContainerElement().classList.add(dark ? 'my-dark-theme' : '');
-  }
+  constructor() {}
+
 }

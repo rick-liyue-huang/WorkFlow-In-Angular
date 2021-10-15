@@ -1,24 +1,3 @@
-<mat-drawer-container
-  [class]="lightTheme ?
-  {'my-light-theme': true, 'my-dark-theme': false} :
-  {'my-light-theme': false, 'my-dark-theme': true}">
-  <mat-drawer #drawer mode="over">
-    <app-sidebar (navClick)="drawer.toggle()"></app-sidebar>
-  </mat-drawer>
-  <div class="site">
-    <header>
-      <app-header
-        (toggle)="drawer.toggle()"
-        (toggleTheme)="switchTheme($event)"
-      ></app-header>
-    </header>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-    <footer>
-      <app-footer></app-footer>
-    </footer>
-  </div>
-</mat-drawer-container>
+<h1>{{title}}</h1>
 
 
