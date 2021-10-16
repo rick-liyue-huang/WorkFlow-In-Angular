@@ -13,13 +13,14 @@ export class NewProjectComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<NewProjectComponent>,
-    private oc: OverlayContainer
+    /*private oc: OverlayContainer*/
   ) { }
 
   ngOnInit(): void {
     console.log(JSON.stringify(this.data));
     // TODO: received the data from project-list component
-    this.oc.getContainerElement().classList.add(this.data.dark ? 'my-dark-theme' : '');
+    // move to app.component.ts
+    // this.oc.getContainerElement().classList.add(this.data.dark ? 'my-dark-theme' : '');
   }
 
   onSaveProject() {

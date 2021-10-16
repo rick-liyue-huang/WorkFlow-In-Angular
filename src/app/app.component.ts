@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {OverlayContainer} from '@angular/cdk/overlay';
 
 
 @Component({
@@ -10,10 +11,12 @@ export class AppComponent {
 
   darkTheme = false;
 
-  constructor() {}
+  // deal with the whole project menu dialog theme switch
+  constructor(private oc: OverlayContainer) {}
 
   switchTheme(dark: boolean) {
     this.darkTheme = dark;
+    this.oc.getContainerElement().classList.add(dark ? 'my-dark-theme' : 'my-light-theme');
   }
 
 }

@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'projects', redirectTo: 'project', pathMatch: 'full'}
+  {path: 'projects', redirectTo: 'project', pathMatch: 'full'},
+  {path: 'tasklist', redirectTo: 'tasklists', pathMatch: 'full'}
 ];
 
 @NgModule({

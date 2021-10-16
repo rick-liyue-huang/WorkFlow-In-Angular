@@ -12,6 +12,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {FormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatMenuModule} from '@angular/material/menu';
 
 // import some shared modules and exports them
 
@@ -31,6 +33,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSlideToggleModule,
     MatGridListModule,
     MatDialogModule,
+    MatAutocompleteModule,
+    MatMenuModule,
   ],
   exports: [
     CommonModule,
@@ -46,6 +50,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSlideToggleModule,
     MatGridListModule,
     MatDialogModule,
+    MatAutocompleteModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }

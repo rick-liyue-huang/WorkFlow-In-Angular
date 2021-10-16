@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-project-item',
@@ -9,10 +9,15 @@ export class ProjectItemComponent implements OnInit {
 
   // TODO: set the item type to match with projects in project-list
   @Input() item: any;
+  @Output() invite = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openInviteMemberDialog() {
+    this.invite.emit();
   }
 
 }

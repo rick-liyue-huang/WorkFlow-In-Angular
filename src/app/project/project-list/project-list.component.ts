@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewProjectComponent} from '../new-project/new-project.component';
+import {InviteComponent} from '../invite/invite.component';
 
 @Component({
   selector: 'app-project-list',
@@ -33,13 +34,18 @@ export class ProjectListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openNewProjectDialog() {
+  launchNewProjectDialog() {
     // the properly open dialog way
     const newProjectRef = this.dialog.open(NewProjectComponent,
       // TODO: 'dark' need to be switched automatically
       {width: '20rem', height: '20rem', data: {dark: true} /*position: {left: '0', top: '0'}*/});
     // here has to match with the newProject data sent back
     newProjectRef.afterClosed().subscribe(result => console.log(result));
+  }
+
+  // TODO: need to set theme switch
+  launchInviteDialog() {
+    const inviteDialogRef = this.dialog.open(InviteComponent, {width: '20rem', height: '20rem'});
   }
 
 }

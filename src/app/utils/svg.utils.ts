@@ -20,4 +20,7 @@ export const loadSvgResources = (mir: MatIconRegistry, dst: DomSanitizer) => {
 
   mir.addSvgIconSetInNamespace('avatars', dst.bypassSecurityTrustResourceUrl(`${avatarDir}/avatars.svg`));
 
+  mir.addSvgIcon('move', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/move.svg`));
+  mir.addSvgIcon('add', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/add.svg`));
+  mir.addSvgIcon('delete', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/delete.svg`))
 }
