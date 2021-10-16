@@ -1,9 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
+import {itemAnim} from '../../animations/item.anims';
 
 @Component({
   selector: 'app-task-item',
   templateUrl: './task-item.component.html',
-  styleUrls: ['./task-item.component.scss']
+  styleUrls: ['./task-item.component.scss'],
+  animations: [
+    itemAnim
+  ]
 })
 export class TaskItemComponent implements OnInit {
 
@@ -11,6 +15,18 @@ export class TaskItemComponent implements OnInit {
   @Input() item!: Record<string, any>;
   @Input() avatar!: any;
   @Output() editTask = new EventEmitter<void>();
+
+  widerPriority = 'out';
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    this.widerPriority = 'hover'
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    this.widerPriority = 'out';
+  }
 
   constructor() { }
 
