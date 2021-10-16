@@ -9,6 +9,8 @@ import {OverlayContainer} from '@angular/cdk/overlay';
 })
 export class NewProjectComponent implements OnInit {
 
+  title: string = ''
+
   // here I can received the data from the trigger component.
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -17,6 +19,8 @@ export class NewProjectComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.title = this.data.title;
+
     console.log(JSON.stringify(this.data));
     // TODO: received the data from project-list component
     // move to app.component.ts

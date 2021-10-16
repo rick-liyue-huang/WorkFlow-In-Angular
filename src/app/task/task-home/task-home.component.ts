@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {MoveTaskComponent} from '../move-task/move-task.component';
+import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
+import {NewTaskListComponent} from '../new-task-list/new-task-list.component';
 
 @Component({
   selector: 'app-task-home',
@@ -112,12 +114,32 @@ export class TaskHomeComponent implements OnInit {
   }
 
   launchNewTaskDialog() {
-    this.dialog.open(NewTaskComponent);
+    const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: 'New Task'}})
   }
 
   launchMoveTaskDialog() {
     // TODO: should filter itself
-    this.dialog.open(MoveTaskComponent, {data: {lists: this.lists}, width: '20rem', height: '10rem'});
+    const dialogRef = this.dialog.open(MoveTaskComponent, {data: {lists: this.lists}, width: '20rem', height: '10rem'});
   }
 
+  launchUpdateTaskDialog(task: any) {
+    // TODO: input task content to dialog
+    const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: 'Edit Task', task: task}})
+  }
+
+  launchConfirmDialog() {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,
+      {data: {title: 'Delete Task', content: 'Are you sure to delete task'}});
+    dialogRef.afterClosed().subscribe(console.log);
+  }
+
+  launchEditTaskListDialog() {
+    const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: 'Edit Task List'}});
+    dialogRef.afterClosed().subscribe(console.log);
+  }
+
+  launchNewTaskListDialog() {
+    const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: 'New Task List'}});
+    dialogRef.afterClosed().subscribe(console.log);
+  }
 }

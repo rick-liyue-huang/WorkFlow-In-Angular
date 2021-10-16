@@ -6,6 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {loadSvgResources} from '../utils/svg.utils';
+import {AppRoutingModule} from '../app-routing.module';
 
 // load this module once and only once
 
@@ -16,7 +17,8 @@ import {loadSvgResources} from '../utils/svg.utils';
     SidebarComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    AppRoutingModule,
   ],
   exports: [
     SharedModule,
