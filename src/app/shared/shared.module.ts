@@ -14,6 +14,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 // import some shared modules and exports them
 
@@ -35,6 +40,11 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDialogModule,
     MatAutocompleteModule,
     MatMenuModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     CommonModule,
@@ -51,7 +61,12 @@ import {MatMenuModule} from '@angular/material/menu';
     MatGridListModule,
     MatDialogModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ]
 })
 export class SharedModule { }

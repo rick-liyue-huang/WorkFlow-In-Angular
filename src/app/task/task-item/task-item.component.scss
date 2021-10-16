@@ -1,0 +1,68 @@
+.due-date {
+  background-color: lightcoral;
+  color: #fff;
+}
+
+.alarm {
+  font-size: 1.5rem;
+}
+
+.bottom-bar {
+  margin-top: 3px;
+  margin-bottom: 2px;
+  font-size: 10px;
+  width: 100%;
+  order: 1;
+}
+
+.content {
+  order: 1;
+  width: 100%;
+  padding: 5px;
+}
+
+.container {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid grey;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+:host {
+  width: 100%;
+}
+
+.completion-status {
+  order: -1;
+}
+
+mat-icon.avatar {
+  overflow: hidden;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 12px;
+  order: 3;
+}
+
+.completed {
+  opacity: 0.64;
+  color: grey;
+  text-decoration: line-through;
+}
+
+.priority-normal {
+  border-left: 3px solid  grey;
+}
+
+.priority-important {
+  border-left: 3px solid green;
+}
+
+.priority-emergency {
+  border-left: 3px solid red;
+}
+
+

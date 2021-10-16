@@ -1,0 +1,30 @@
+<form>
+  <h2 mat-dialog-title>New Task</h2>
+  <div mat-dialog-content>
+    <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
+      <input matInput type="text" placeholder="task name" />
+    </mat-form-field>
+    <mat-radio-group>
+      <mat-radio-button *ngFor="let priority of priorities" [value]="priority.value">
+        {{priority.label}}
+      </mat-radio-button>
+    </mat-radio-group>
+<!--    due date picker -->
+    <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
+      <input matInput type="text" placeholder="task due date" [matDatepicker]="dueDatePicker" />
+      <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+    </mat-form-field>
+    <mat-datepicker #dueDatePicker></mat-datepicker>
+<!--    reminder date picker -->
+    <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
+      <input matInput type="text" placeholder="task reminder date" [matDatepicker]="reminderDatePicker" />
+      <mat-datepicker-toggle matSuffix [for]="reminderDatePicker"></mat-datepicker-toggle>
+    </mat-form-field>
+    <mat-datepicker #reminderDatePicker></mat-datepicker>
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" mat-raised-button color="primary" (click)="onSaveClick()">Save</button>
+    <button type="button" mat-raised-button mat-dialog-close>Close</button>
+  </div>
+</form>
+

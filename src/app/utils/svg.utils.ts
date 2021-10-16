@@ -22,5 +22,7 @@ export const loadSvgResources = (mir: MatIconRegistry, dst: DomSanitizer) => {
 
   mir.addSvgIcon('move', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/move.svg`));
   mir.addSvgIcon('add', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/add.svg`));
-  mir.addSvgIcon('delete', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/delete.svg`))
+  mir.addSvgIcon('delete', dst.bypassSecurityTrustResourceUrl(`${iconsDir}/delete.svg`));
+
+  mir.addSvgIcon('unassigned', dst.bypassSecurityTrustResourceUrl(`${avatarDir}/unassigned.svg`));
 }
