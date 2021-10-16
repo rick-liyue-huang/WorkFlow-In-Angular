@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewTaskComponent} from '../new-task/new-task.component';
+import {MoveTaskComponent} from '../move-task/move-task.component';
 
 @Component({
   selector: 'app-task-home',
@@ -112,6 +113,11 @@ export class TaskHomeComponent implements OnInit {
 
   launchNewTaskDialog() {
     this.dialog.open(NewTaskComponent);
+  }
+
+  launchMoveTaskDialog() {
+    // TODO: should filter itself
+    this.dialog.open(MoveTaskComponent, {data: {lists: this.lists}, width: '20rem', height: '10rem'});
   }
 
 }
