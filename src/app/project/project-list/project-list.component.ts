@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewProjectComponent} from '../new-project/new-project.component';
 import {InviteComponent} from '../invite/invite.component';
@@ -14,6 +14,9 @@ import {listAnim} from '../../animations/list.anim';
     routerAnim,
     listAnim,
   ],
+
+//  TODO: change detection produces some mouse enter problem on Project
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
 
@@ -41,7 +44,7 @@ export class ProjectListComponent implements OnInit {
   @HostBinding('@route') state: any;
 
   // if use dialog must use like this
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -62,6 +65,9 @@ export class ProjectListComponent implements OnInit {
         {id: 5, name: 'new Project 2', desc: 'new project desc 2', coverImg: 'assets/img/covers/6.jpg'}
       ];
     });
+
+    // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
+    this.cd.markForCheck();
   }
 
   // TODO: need to set theme switch
@@ -81,6 +87,9 @@ export class ProjectListComponent implements OnInit {
       console.log(result);
       this.projects = this.projects.filter(p => p.id !== project.id);
     });
+
+    // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
+    this.cd.markForCheck();
   }
 
 }

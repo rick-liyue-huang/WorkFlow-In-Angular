@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Inject, Injector, ReflectiveInjector} from '@angular/core';
 import {OverlayContainer} from '@angular/cdk/overlay';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
@@ -10,12 +10,15 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
 })
 export class AppComponent {
 
-  squareState!: string;
-
   darkTheme = false;
 
   // deal with the whole project menu dialog theme switch
-  constructor(private oc: OverlayContainer) {}
+  constructor(
+    private oc: OverlayContainer,
+    @Inject('BASE_CONFIG') config: string
+  ) {
+    console.log(config);
+  }
 
   switchTheme(dark: boolean) {
     this.darkTheme = dark;
