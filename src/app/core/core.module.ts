@@ -7,6 +7,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {loadSvgResources} from '../utils/svg.utils';
 import {AppRoutingModule} from '../app-routing.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // load this module once and only once
 
@@ -19,12 +20,15 @@ import {AppRoutingModule} from '../app-routing.module';
   imports: [
     SharedModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     SharedModule,
+    AppRoutingModule,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    BrowserAnimationsModule
   ]
 })
 export class CoreModule {

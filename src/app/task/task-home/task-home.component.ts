@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {MoveTaskComponent} from '../move-task/move-task.component';
 import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
 import {NewTaskListComponent} from '../new-task-list/new-task-list.component';
+import {routerAnim} from '../../animations/router.anim';
 
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
-  styleUrls: ['./task-home.component.scss']
+  styleUrls: ['./task-home.component.scss'],
+  animations: [
+    routerAnim
+  ]
 })
 export class TaskHomeComponent implements OnInit {
 
@@ -106,7 +110,9 @@ export class TaskHomeComponent implements OnInit {
         },
       ]
     }
-  ]
+  ];
+
+  @HostBinding('@route') state: any;
 
   constructor(private dialog: MatDialog) { }
 
