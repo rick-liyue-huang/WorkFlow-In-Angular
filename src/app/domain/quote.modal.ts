@@ -5,3 +5,5 @@ export interface QuoteModal {
   en: string;
   pic: string;
 }
+
+

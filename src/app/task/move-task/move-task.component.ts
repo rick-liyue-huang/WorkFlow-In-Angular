@@ -19,7 +19,7 @@ export class MoveTaskComponent implements OnInit {
     this.lists = this.data.lists;
   }
 
-  onSaveProject() {
+  onSaveMoveTask() {
     this.dialogRef.close();
   }
 

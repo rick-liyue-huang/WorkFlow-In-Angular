@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  onSumbit({value, valid}: {value: any, valid: any}, ev: Event) {
+  onSubmit({value, valid}: {value: any, valid: any}, ev: Event) {
     ev.preventDefault();
     console.log(JSON.stringify(value));
     console.log(JSON.stringify(valid));

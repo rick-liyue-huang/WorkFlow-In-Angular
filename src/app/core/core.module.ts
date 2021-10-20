@@ -10,6 +10,8 @@ import {AppRoutingModule} from '../app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServicesModule} from '../services/services.module';
 
+import '../utils/debug.utils';
+
 // load this module once and only once
 
 @NgModule({
