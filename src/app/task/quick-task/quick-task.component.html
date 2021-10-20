@@ -1,0 +1,15 @@
+
+<mat-form-field class="quick-task" floatLabel="auto" hintLabel="list name required">
+  <input matInput placeholder="quick task name" [(ngModel)]="desc" name="desc" />
+  <button mat-icon-button matSuffix (click)="sendQuickTask()">
+    <mat-icon>send</mat-icon>
+  </button>
+</mat-form-field>
+
+
+<!--<div>
+  data: {{f.value | json}}
+</div>
+<div>
+  valid: {{f.valid | json}}
+</div>-->

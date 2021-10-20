@@ -9,6 +9,7 @@ import {TaskRoutingModule} from './task-routing.module';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { MoveTaskComponent } from './move-task/move-task.component';
 import { NewTaskListComponent } from './new-task-list/new-task-list.component';
+import { QuickTaskComponent } from './quick-task/quick-task.component';
 
 
 
@@ -20,7 +21,8 @@ import { NewTaskListComponent } from './new-task-list/new-task-list.component';
     TaskHeaderComponent,
     NewTaskComponent,
     MoveTaskComponent,
-    NewTaskListComponent
+    NewTaskListComponent,
+    QuickTaskComponent
   ],
   imports: [
     SharedModule,
