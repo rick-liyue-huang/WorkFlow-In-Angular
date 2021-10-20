@@ -1,4 +1,4 @@
-<form class="container">
+<form class="container" [formGroup]="form" (ngSubmit)="onSumbit(form, $event)">
   <mat-card>
     <mat-card-title>
       <span class="fill-remaining-space"></span>
@@ -7,29 +7,38 @@
     </mat-card-title>
     <mat-card-content>
       <mat-form-field color="accent" floatLabel="auto" hintLabel="email required" class="full-wide" >
-        <input matInput type="email" placeholder="your Email address" />
+        <input matInput type="email" placeholder="your Email address" formControlName="email" />
         <mat-error>email format is wrong</mat-error>
       </mat-form-field>
       <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
-        <input matInput type="text" placeholder="your username" />
+        <input matInput type="text" placeholder="your username" formControlName="name" />
         <mat-error>email format is wrong</mat-error>
       </mat-form-field>
       <mat-form-field color="accent" floatLabel="auto" hintLabel="password required" class="full-wide">
-        <input matInput type="password" placeholder="your password" />
+        <input matInput type="password" placeholder="your password" formControlName="password" />
       </mat-form-field>
       <mat-form-field color="accent" floatLabel="auto" hintLabel="confirm password required" class="full-wide">
-        <input matInput type="password" placeholder="confirm your password" />
+        <input matInput type="password" placeholder="confirm your password" formControlName="repeat" />
       </mat-form-field>
-      <mat-grid-list cols="8" rowHeight="5rem">
+
+
+      <!--<mat-grid-list cols="8" rowHeight="5rem">
         <mat-grid-tile *ngFor="let item of items">
           <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
         </mat-grid-tile>
+      </mat-grid-list>-->
 
-      </mat-grid-list>
+      <app-image-list-select
+        [useSvgIcon]="true"
+        [cols]="6"
+        [title]="'Select Icon'"
+        [items]="items"
+        formControlName="avatar"
+      ></app-image-list-select>
       <br><br>
       <div class="btn-container">
         <span class="fill-remaining-space"></span>
-        <button class="full-wide login-button" mat-raised-button color="accent" type="button">Regist</button>
+        <button class="full-wide login-button" mat-raised-button color="accent" type="submit">Register</button>
         <span class="fill-remaining-space"></span>
       </div>
 

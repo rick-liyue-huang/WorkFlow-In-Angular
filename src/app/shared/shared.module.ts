@@ -22,12 +22,14 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import {DirectiveModule} from '../directive/directive.module';
+import { ImageListSelectComponent } from './image-list-select/image-list-select.component';
 
 // import some shared modules and exports them
 
 @NgModule({
   declarations: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ImageListSelectComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +80,8 @@ import {DirectiveModule} from '../directive/directive.module';
     MatNativeDateModule,
     MatSelectModule,
     ConfirmDialogComponent,
-    DirectiveModule
+    DirectiveModule,
+    ImageListSelectComponent,
   ]
 })
 export class SharedModule { }
