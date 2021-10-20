@@ -25,5 +25,4 @@ export class AppComponent {
     this.oc.getContainerElement().classList.add(dark ? 'my-dark-theme' : 'my-light-theme');
   }
 
-
 }

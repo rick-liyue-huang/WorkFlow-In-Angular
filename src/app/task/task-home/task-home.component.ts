@@ -5,6 +5,7 @@ import {MoveTaskComponent} from '../move-task/move-task.component';
 import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
 import {NewTaskListComponent} from '../new-task-list/new-task-list.component';
 import {routerAnim} from '../../animations/router.anim';
+import {DragData} from '../../directive/drag-drop.service';
 
 @Component({
   selector: 'app-task-home',
@@ -22,6 +23,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 1,
       name: 'Ready',
+      order: 1,
       tasks: [
         {
           id: 1,
@@ -53,6 +55,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 2,
       name: 'Processing',
+      order: 2,
       tasks: [
         {
           id: 1,
@@ -83,6 +86,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 3,
       name: 'Completed',
+      order: 3,
       tasks: [
         {
           id: 1,
@@ -151,5 +155,23 @@ export class TaskHomeComponent implements OnInit {
   launchNewTaskListDialog() {
     const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: 'New Task List'}});
     dialogRef.afterClosed().subscribe(console.log);
+  }
+
+  handleMove(srcData: Record<string, any>, list: any) {
+    switch (srcData.tag) {
+      case 'task-item':
+        console.log('handling item');
+        console.log('srcData: ', srcData)
+        break;
+      case 'task-list':
+        console.log('handling list');
+        const srcList = srcData.data;
+        const tempOrder = srcList.order;
+        srcList.order = list.order;
+        list.order = tempOrder;
+        break;
+      default:
+        break;
+    }
   }
 }

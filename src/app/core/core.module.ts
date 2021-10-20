@@ -8,6 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {loadSvgResources} from '../utils/svg.utils';
 import {AppRoutingModule} from '../app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ServicesModule} from '../services/services.module';
 
 // load this module once and only once
 
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ServicesModule,
   ],
   exports: [
     SharedModule,
@@ -28,7 +30,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServicesModule,
   ],
   providers: [
     {provide: 'BASE_CONFIG', useValue: 'http://localhost:3000'}
@@ -44,7 +47,7 @@ export class CoreModule {
     dst: DomSanitizer
   ) {
     if (parent) {
-      throw new Error('core module exists already, cannot load again!!')
+      throw new Error('core module exists already, cannot load again!!');
     }
     loadSvgResources(mir, dst);
   }

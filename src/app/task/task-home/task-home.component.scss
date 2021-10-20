@@ -19,3 +19,12 @@
   bottom: 6rem;
   z-index: 1000;
 }
+
+.drag-enter {
+  background-color: dimgray;
+}
+
+.drag-start {
+  opacity: 0.5;
+  border: 2px dashed red;
+}
