@@ -15,7 +15,7 @@ export class TaskService {
 
   constructor(
     private http: HttpClient,
-    @Inject('BASE_CONFIG') private config: any
+    @Inject('BASE_CONFIG') private config: { uri: string }
   ) { }
 
   //  POST
