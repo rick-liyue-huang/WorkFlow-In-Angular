@@ -42,7 +42,7 @@ export class ProjectService {
   // TODO: delete three layer contents
   delete(project: ProjectModal): Observable<ProjectModal> {
     const delTasks$ = Observable
-      .from(project.taskLists)
+      .from(project.taskLists ?  project.taskLists : [])
       .mergeMap(listId => this.http.delete(`${this.config.uri}/taskLists/${listId}`))
       .count();
 
