@@ -35,7 +35,14 @@
         [items]="items"
         formControlName="avatar"
       ></app-image-list-select>
-      <br><br>
+
+
+      <app-age-input
+        formControlName="dateOfBirth"
+        (change)="onChange()"
+      ></app-age-input>
+
+
       <div class="btn-container">
         <span class="fill-remaining-space"></span>
         <button class="full-wide login-button" mat-raised-button color="accent" type="submit">Register</button>

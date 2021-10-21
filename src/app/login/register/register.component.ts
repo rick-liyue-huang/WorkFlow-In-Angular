@@ -23,14 +23,22 @@ export class RegisterComponent implements OnInit {
       name: [''],
       password: [''],
       repeat: [''],
-      avatar: [img]
+      avatar: [img],
+      dateOfBirth: ['1990-01-01'],
     })
   }
 
   onSubmit({value, valid}: {value: any, valid: any}, ev: Event) {
     ev.preventDefault();
+    if (!value) {
+      return
+    }
     console.log(JSON.stringify(value));
     console.log(JSON.stringify(valid));
+  }
+
+  onChange() {
+
   }
 
 }

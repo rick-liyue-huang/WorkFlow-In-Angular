@@ -23,13 +23,16 @@ import {MatSelectModule} from '@angular/material/select';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import {DirectiveModule} from '../directive/directive.module';
 import { ImageListSelectComponent } from './image-list-select/image-list-select.component';
+import { AgeInputComponent } from './age-input/age-input.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 // import some shared modules and exports them
 
 @NgModule({
   declarations: [
     ConfirmDialogComponent,
-    ImageListSelectComponent
+    ImageListSelectComponent,
+    AgeInputComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,7 @@ import { ImageListSelectComponent } from './image-list-select/image-list-select.
     MatNativeDateModule,
     MatSelectModule,
     DirectiveModule,
+    MatButtonToggleModule,
   ],
   exports: [
     CommonModule,
@@ -82,6 +86,8 @@ import { ImageListSelectComponent } from './image-list-select/image-list-select.
     ConfirmDialogComponent,
     DirectiveModule,
     ImageListSelectComponent,
+    AgeInputComponent,
+    MatButtonToggleModule,
   ]
 })
 export class SharedModule { }
