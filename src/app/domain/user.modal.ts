@@ -3,5 +3,6 @@ export interface UserModal {
   email: string;
   password: string;
   name: string;
-  avatar: string
+  avatar: string;
+  projectIds: string[];
 }

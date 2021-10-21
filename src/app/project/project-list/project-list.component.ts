@@ -5,6 +5,8 @@ import {InviteComponent} from '../invite/invite.component';
 import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
 import {routerAnim} from '../../animations/router.anim';
 import {listAnim} from '../../animations/list.anim';
+import {ProjectModal} from '../../domain';
+import {ProjectService} from '../../services/project.service';
 
 @Component({
   selector: 'app-project-list',
@@ -20,7 +22,7 @@ import {listAnim} from '../../animations/list.anim';
 })
 export class ProjectListComponent implements OnInit {
 
-  projects = [
+  /*projects = [
     {
       id: 1,
       name: 'business platform',
@@ -39,14 +41,24 @@ export class ProjectListComponent implements OnInit {
       desc: 'one description',
       coverImg: 'assets/img/covers/2.jpg'
     },
-  ];
+  ];*/
+
+  // TODO: [@list]="projects.length" has some warning when not loading projects form server
+  projects!: ProjectModal[];
 
   @HostBinding('@route') state: any;
 
   // if use dialog must use like this
-  constructor(private dialog: MatDialog, private cd: ChangeDetectorRef) { }
+  constructor(
+    private dialog: MatDialog,
+    private cd: ChangeDetectorRef,
+    private service: ProjectService
+  ) { }
 
   ngOnInit(): void {
+    this.service.get('BkkDvwee-').subscribe(projects => this.projects = projects);
+    console.log(this.projects)
+    // this.cd.markForCheck();
   }
 
   launchNewProjectDialog() {
@@ -60,10 +72,11 @@ export class ProjectListComponent implements OnInit {
       {width: '20rem', height: '20rem', data: {title: 'New Project'} /*position: {left: '0', top: '0'}*/});
     newProjectRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.projects = [...this.projects,
-        {id: 4, name: 'new Project 1', desc: 'new project desc 1', coverImg: 'assets/img/covers/6.jpg'},
-        {id: 5, name: 'new Project 2', desc: 'new project desc 2', coverImg: 'assets/img/covers/6.jpg'}
-      ];
+      // TODO: match the projectModal pattern
+      /*this.projects = [...this.projects,
+        {id: '4', name: 'new Project 1', desc: 'new project desc 1', coverImg: 'assets/img/covers/6.jpg'},
+        {id: '5', name: 'new Project 2', desc: 'new project desc 2', coverImg: 'assets/img/covers/6.jpg'}
+      ];*/
     });
 
     // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
@@ -85,7 +98,7 @@ export class ProjectListComponent implements OnInit {
       {data: {title: 'Delete Project', content: 'Are you sure to delete project'}});
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.projects = this.projects.filter(p => p.id !== project.id);
+      this.projects = this.projects?.filter(p => p.id !== project.id);
     });
 
     // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
