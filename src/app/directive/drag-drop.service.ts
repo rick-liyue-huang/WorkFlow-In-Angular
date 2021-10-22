@@ -14,6 +14,7 @@ export class DragDropService {
 
   constructor() { }
 
+  // hot Observable
   private _dragData = new BehaviorSubject<DragData | null>(null);
 
   setDragData(data: DragData) {

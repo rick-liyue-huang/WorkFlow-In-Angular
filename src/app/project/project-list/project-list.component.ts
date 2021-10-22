@@ -114,7 +114,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   // TODO: need to set theme switch
   launchInviteDialog() {
-    const inviteDialogRef = this.dialog.open(InviteComponent, {width: '20rem', height: '20rem'});
+    // const inviteDialogRef = this.dialog.open(InviteComponent,  {width: '20rem', height: '20rem'});
+    const inviteDialogRef = this.dialog.open(InviteComponent,
+      {data: {members: []}});
   }
 
   launchEditProjectDialog(project: ProjectModal) {

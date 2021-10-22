@@ -1,0 +1,22 @@
+<div>
+  <mat-form-field class="full-wide">
+    <mat-select
+      placeholder="ID Type" (selectionChange)="onIdTypeChange($event.value)"
+      [(ngModel)]="identity.identityType"
+    >
+      <mat-option  *ngFor="let type of identityTypes" [value]="type.value">
+        {{type.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="id-input full-wide">
+  <mat-form-field class="full-wide">
+    <input
+      matInput type="text" placeholder="ID number"
+      (change)="onIdNoChange($event)"
+      [(ngModel)]="identity.identityNo"
+    >
+    <mat-error>ID number is wrong</mat-error>
+  </mat-form-field>
+</div>

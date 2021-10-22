@@ -25,6 +25,12 @@ import {DirectiveModule} from '../directive/directive.module';
 import { ImageListSelectComponent } from './image-list-select/image-list-select.component';
 import { AgeInputComponent } from './age-input/age-input.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ChipsListComponent } from './chips-list/chips-list.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { IdentityInputComponent } from './identity-input/identity-input.component';
+import {AreaListComponent} from './area-list/area-list.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 // import some shared modules and exports them
 
@@ -33,6 +39,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ConfirmDialogComponent,
     ImageListSelectComponent,
     AgeInputComponent,
+    ChipsListComponent,
+    IdentityInputComponent,
+    AreaListComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +68,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatSelectModule,
     DirectiveModule,
     MatButtonToggleModule,
+    MatChipsModule,
+    MatTabsModule,
   ],
   exports: [
     CommonModule,
@@ -88,6 +99,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ImageListSelectComponent,
     AgeInputComponent,
     MatButtonToggleModule,
+    MatChipsModule,
+    ChipsListComponent,
+    IdentityInputComponent,
+    AreaListComponent,
+    MatTabsModule,
   ]
 })
 export class SharedModule { }

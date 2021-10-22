@@ -1,58 +1,74 @@
 <form class="container" [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <mat-card>
-    <mat-card-title>
-      <span class="fill-remaining-space"></span>
-      Register
-      <span class="fill-remaining-space"></span>
-    </mat-card-title>
-    <mat-card-content>
-      <mat-form-field color="accent" floatLabel="auto" hintLabel="email required" class="full-wide" >
-        <input matInput type="email" placeholder="your Email address" formControlName="email" />
-        <mat-error>email format is wrong</mat-error>
-      </mat-form-field>
-      <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
-        <input matInput type="text" placeholder="your username" formControlName="name" />
-        <mat-error>email format is wrong</mat-error>
-      </mat-form-field>
-      <mat-form-field color="accent" floatLabel="auto" hintLabel="password required" class="full-wide">
-        <input matInput type="password" placeholder="your password" formControlName="password" />
-      </mat-form-field>
-      <mat-form-field color="accent" floatLabel="auto" hintLabel="confirm password required" class="full-wide">
-        <input matInput type="password" placeholder="confirm your password" formControlName="repeat" />
-      </mat-form-field>
+    <mat-tab-group>
+
+      <mat-tab label="Account Info">
+        <br>
+        <mat-card-title>
+          <span class="fill-remaining-space"></span>
+          Register
+          <span class="fill-remaining-space"></span>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-form-field color="accent" floatLabel="auto" hintLabel="email required" class="full-wide" >
+            <input matInput type="email" placeholder="your Email address" formControlName="email" />
+            <mat-error>email format is wrong</mat-error>
+          </mat-form-field>
+          <mat-form-field color="accent" floatLabel="auto" hintLabel="user name required" class="full-wide" >
+            <input matInput type="text" placeholder="your username" formControlName="name" />
+            <mat-error>email format is wrong</mat-error>
+          </mat-form-field>
+          <mat-form-field color="accent" floatLabel="auto" hintLabel="password required" class="full-wide">
+            <input matInput type="password" placeholder="your password" formControlName="password" />
+          </mat-form-field>
+          <mat-form-field color="accent" floatLabel="auto" hintLabel="confirm password required" class="full-wide">
+            <input matInput type="password" placeholder="confirm your password" formControlName="repeat" />
+          </mat-form-field>
 
 
-      <!--<mat-grid-list cols="8" rowHeight="5rem">
-        <mat-grid-tile *ngFor="let item of items">
-          <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
-        </mat-grid-tile>
-      </mat-grid-list>-->
+          <!--<mat-grid-list cols="8" rowHeight="5rem">
+            <mat-grid-tile *ngFor="let item of items">
+              <mat-icon class="avatar" [svgIcon]="item"></mat-icon>
+            </mat-grid-tile>
+          </mat-grid-list>-->
 
-      <app-image-list-select
-        [useSvgIcon]="true"
-        [cols]="6"
-        [title]="'Select Icon'"
-        [items]="items"
-        formControlName="avatar"
-      ></app-image-list-select>
+          <app-image-list-select
+            [useSvgIcon]="true"
+            [cols]="6"
+            [title]="'Select Icon'"
+            [items]="items"
+            formControlName="avatar"
+          ></app-image-list-select>
 
+          <div class="btn-container">
+            <span class="fill-remaining-space"></span>
+            <button class="full-wide login-button" mat-raised-button color="accent" type="submit">Register</button>
+            <span class="fill-remaining-space"></span>
+          </div>
 
-      <app-age-input
-        formControlName="dateOfBirth"
-        (change)="onChange()"
-      ></app-age-input>
+        </mat-card-content>
+        <br><br><br><br>
+        <mat-card-actions class="text-right">
+          <p>Have an account? <button mat-button  routerLink="/login">Login</button></p>
+        </mat-card-actions>
+      </mat-tab>
+<!--      seperate two parts-->
+      <mat-tab label="Additional Info">
+        <br>
+        <div class="full-wide">
+          <app-identity-input formControlName="identity"></app-identity-input>
+        </div>
+        <div class="full-wide">
+          <app-age-input
+            formControlName="dateOfBirth"
+            (change)="onChange()"
+          ></app-age-input>
+        </div>
+        <div class="full-wide">
+          <app-area-list formControlName="address"></app-area-list>
+        </div>
+      </mat-tab>
 
-
-      <div class="btn-container">
-        <span class="fill-remaining-space"></span>
-        <button class="full-wide login-button" mat-raised-button color="accent" type="submit">Register</button>
-        <span class="fill-remaining-space"></span>
-      </div>
-
-    </mat-card-content>
-    <mat-card-actions class="text-right">
-      <p>Have an account? <button mat-button  routerLink="/login">Login</button></p>
-    </mat-card-actions>
+    </mat-tab-group>
   </mat-card>
-
 </form>
