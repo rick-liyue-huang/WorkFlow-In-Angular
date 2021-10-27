@@ -8,6 +8,7 @@ import {ProjectModule} from './project/project.module';
 import {TaskModule} from './task/task.module';
 import {AppStoreModule} from './reducers';
 import {AppEffectsModule} from './effects';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {AppEffectsModule} from './effects';
     TaskModule,
     AppStoreModule,
     AppEffectsModule,
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

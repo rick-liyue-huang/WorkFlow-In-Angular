@@ -14,17 +14,11 @@ export class QuoteEffects {
     switchMap(() =>
       this.quoteService.getQuote().pipe(
         map(quote =>  quoteSuccessAction({quote})),
-        // catchError((message: string) => of(quoteFailureAction({message})))
+        catchError((message: string) => of(quoteFailureAction({message})))
       )
     )
   )
   ) ;
-
-
-
-
-
-
 
 
   constructor(

@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs-compat';
 import {extractInfo, getAddrByCode, isValidAddr} from '../../utils/identity.utils';
 import {isValidDate} from '../../utils/date.utils';
+import {Store} from '@ngrx/store';
+import {registerAction} from '../../actions/auth.action';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   // identityElement = this.form.get('identity')!;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+  ) { }
 
   ngOnInit(): void {
     const img = `${this.avatarName}:svg-${Math.floor(Math.random() * 16).toFixed(0)}`
@@ -69,6 +74,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
     console.log(JSON.stringify(value));
     console.log(JSON.stringify(valid));
+
+    this.store.dispatch(registerAction(value))
   }
 
   onChange() {

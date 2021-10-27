@@ -12,13 +12,15 @@ import {
 import {quoteSuccessReducer} from './quote.reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {authReducer} from './auth.reducer';
 
 
 
 @NgModule({
   imports: [
     StoreModule.forRoot({
-      quote: quoteSuccessReducer
+      quote: quoteSuccessReducer,
+      auth: authReducer,
     }),
     StoreDevtoolsModule.instrument({}),
     StoreRouterConnectingModule.forRoot()

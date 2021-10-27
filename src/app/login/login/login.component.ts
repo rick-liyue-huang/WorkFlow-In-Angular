@@ -6,6 +6,7 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs-compat';
 import { selectQuote } from 'src/app/selectors/quote.selector';
 import {quoteAction, quoteSuccessAction} from '../../actions/quote.action';
+import { loginAction } from 'src/app/actions/auth.action';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit {
     })*/
     this.form = this.fb.group({
       email: ['rick@gmail.com', Validators.compose([
-        Validators.required, Validators.email, this.validate
+        Validators.required, Validators.email
       ])],
       password: ['', Validators.required]
     });
@@ -56,11 +57,17 @@ export class LoginComponent implements OnInit {
     this.store.dispatch(quoteAction())
   }
 
-  onSubmit({value, valid}: {value: any, valid: any}, ev: Event) {
+  onSubmit({value, valid}: {value: {email: string, password: string}, valid: any}, ev: Event) {
     ev.preventDefault();
     console.log(JSON.stringify(value));
     console.log(JSON.stringify(valid));
     // this.form.controls['email'].setValidators(this.validate)
+
+  //   use ngrx to realize login and register
+    if (!valid) {
+      return;
+    }
+    this.store.dispatch(loginAction(value))
   }
 
 //   self defined validator
