@@ -6,6 +6,7 @@ import {CoreModule} from './core/core.module';
 import {LoginModule} from './login/login.module';
 import {ProjectModule} from './project/project.module';
 import {TaskModule} from './task/task.module';
+import {AppStoreModule} from './reducers';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {TaskModule} from './task/task.module';
     LoginModule,
     ProjectModule,
     TaskModule,
+    AppStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

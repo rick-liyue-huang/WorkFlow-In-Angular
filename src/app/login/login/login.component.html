@@ -39,11 +39,11 @@
       Something you need to know..
     </mat-card-title>
     <mat-card-subtitle>
-      {{quote.en}}
+      {{ (quote$ | async)?.en }}
     </mat-card-subtitle>
-    <img mat-card-image [src]="quote.pic" alt="quote image" />
+    <img mat-card-image [src]="(quote$ | async)?.pic" alt="quote image" />
     <mat-card-content>
-      {{quote.cn}}
+      {{(quote$ | async)?.cn }}
     </mat-card-content>
   </mat-card>
 </form>
