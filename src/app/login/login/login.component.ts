@@ -5,7 +5,7 @@ import {QuoteModal} from '../../domain/quote.modal';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs-compat';
 import { selectQuote } from 'src/app/selectors/quote.selector';
-import {quoteSuccessAction} from '../../actions/quote.action';
+import {quoteAction, quoteSuccessAction} from '../../actions/quote.action';
 
 
 @Component({
@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   };*/
 
 
-  // @ts-ignore
-  quote$ = this.store.select(selectQuote);
+
+  quote$!: Observable<QuoteModal>;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +33,9 @@ export class LoginComponent implements OnInit {
     private store: Store,
   ) {
     // this.quoteService.getQuote().subscribe(q => this.quote = q);
-    this.quoteService.getQuote().subscribe(quote => this.store.dispatch(quoteSuccessAction({quote})) )
+    // this.quoteService.getQuote().subscribe(quote => this.store.dispatch(quoteSuccessAction({quote})) )
+    // @ts-ignore
+    this.quote$ = this.store.select(selectQuote);
   }
 
   // TODO: maybe adjust the login card size by rem in .html
@@ -50,6 +52,8 @@ export class LoginComponent implements OnInit {
       ])],
       password: ['', Validators.required]
     });
+
+    this.store.dispatch(quoteAction())
   }
 
   onSubmit({value, valid}: {value: any, valid: any}, ev: Event) {

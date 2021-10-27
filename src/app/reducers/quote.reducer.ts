@@ -1,5 +1,5 @@
 import {createReducer, on} from '@ngrx/store';
-import {QUOTE, quoteSuccessAction} from '../actions/quote.action';
+import {quoteSuccessAction} from '../actions/quote.action';
 import {QuoteModal} from '../domain';
 
 
@@ -11,7 +11,7 @@ export const initialState: QuoteModal = {
 }
 
 
-export const quoteReducer = createReducer(QUOTE);
+// export const quoteReducer = createReducer(QUOTE);
 export const quoteSuccessReducer = createReducer(
   initialState,
   on(quoteSuccessAction, (state, {quote}) => quote)

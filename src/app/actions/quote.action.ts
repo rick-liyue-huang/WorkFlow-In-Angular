@@ -6,14 +6,14 @@ import {createAction, props} from "@ngrx/store";
 import {QuoteModal} from '../domain';
 
 
-export const QUOTE = createAction('[QUOTE] QUOTE');
+export const quoteAction = createAction('[QUOTE] QUOTE');
 
 export const quoteSuccessAction = createAction(
   '[QUOTE] QUOTE_SUCCESS',
   props<{ quote: QuoteModal }>()
 );
 
-export const QUOTE_FAILURE = createAction(
+export const quoteFailureAction = createAction(
   '[QUOTE FAILURE] QUOTE_FAILURE',
   props<{message: string}>()
 );
