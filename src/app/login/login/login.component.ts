@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     "pic": "/assets/img/quotes/9.jpg"
   };*/
 
+
   // @ts-ignore
   quote$ = this.store.select(selectQuote);
 
