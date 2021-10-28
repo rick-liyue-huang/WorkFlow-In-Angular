@@ -167,41 +167,30 @@
       "desc": "afadssd",
       "coverImg": "/assets/img/covers/23.jpg",
       "id": "f6adgLA"
+    },
+    {
+      "name": "vaefs",
+      "desc": "asfdds",
+      "coverImg": "/assets/img/covers/4.jpg",
+      "members": [
+        ""
+      ],
+      "id": "4g8l--y"
+    },
+    {
+      "name": "seewr",
+      "desc": "asdfd",
+      "coverImg": "/assets/img/covers/7.jpg",
+      "members": [
+        ""
+      ],
+      "id": "Hhn54LF"
     }
   ],
   "taskLists": [],
   "tasks": [],
   "taskFilter": [],
-  "taskHistory": [
-    {
-      "taskId": "3",
-      "operator": {
-        "id": "37489e0c-df34-c261-71c4-ce75357e3035",
-        "email": "wpcfan@163.com",
-        "name": "rick",
-        "avatar": "avatars:svg-1"
-      },
-      "operation": {
-        "type": "completeTask"
-      },
-      "date": "2018-11-29T10:19:53.996Z",
-      "id": "Rd~QHfx"
-    },
-    {
-      "taskId": "3",
-      "operator": {
-        "id": "37489e0c-df34-c261-71c4-ce75357e3035",
-        "email": "wpcfan@163.com",
-        "name": "rick",
-        "avatar": "avatars:svg-1"
-      },
-      "operation": {
-        "type": "recreateTask"
-      },
-      "date": "2018-11-29T10:19:56.055Z",
-      "id": "9YlZkyc"
-    }
-  ],
+  "taskHistory": [],
   "quotes": [
     {
       "id": "0",

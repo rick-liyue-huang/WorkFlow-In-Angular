@@ -95,7 +95,8 @@ export class ProjectsEffects {
     .pipe(
       ofType(selectProjectDetailAction),
       map(action => action.project),
-      map(project => new routerActions.Go({ path: [`/tasklists/${project.id}`] }))
+      // map(project => new routerActions.Go({ path: [`/tasklists/${project.id}`] })),
+      tap((project) => this.router.navigate([`/tasklists/${project.id}`]))
     ), { dispatch: false }
   )
 

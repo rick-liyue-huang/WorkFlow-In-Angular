@@ -20,7 +20,7 @@ export class TaskListService {
 
   //  POST
   add(taskList: TaskListModal): Observable<TaskListModal> {
-    taskList.id = undefined;
+    // taskList.id = undefined;
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http
       .post(uri, JSON.stringify(taskList), {headers: this.headers}) as Observable<TaskListModal>

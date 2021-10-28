@@ -6,6 +6,12 @@ import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog
 import {NewTaskListComponent} from '../new-task-list/new-task-list.component';
 import {routerAnim} from '../../animations/router.anim';
 import {DragData} from '../../directive/drag-drop.service';
+import {Store} from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs-compat';
+import {TaskListModal} from '../../domain';
+import {getTaskLists} from '../../selectors/task-list.selector';
+import {addTaskListAction, deleteTaskListAction, updateTaskListAction} from '../../actions/task-list.action';
 
 @Component({
   selector: 'app-task-home',
@@ -19,7 +25,7 @@ import {DragData} from '../../directive/drag-drop.service';
 export class TaskHomeComponent implements OnInit {
 
   // TODO: will change in future
-  lists = [
+  /*lists = [
     {
       id: 1,
       name: 'Ready',
@@ -115,14 +121,24 @@ export class TaskHomeComponent implements OnInit {
         },
       ]
     }
-  ];
+  ];*/
 
   @HostBinding('@route') state: any;
 
+  projectId$!: Observable<string>;
+  lists$!: Observable<TaskListModal[]>;
+
+
   constructor(
     private dialog: MatDialog,
-    private cd: ChangeDetectorRef
-  ) { }
+    private cd: ChangeDetectorRef,
+    private store: Store,
+    private route: ActivatedRoute,
+  ) {
+    // match with task-routing.module.ts
+    this.projectId$ = this.route.paramMap.pluck('id');
+    this.lists$ = this.store.select(getTaskLists)
+  }
 
   ngOnInit(): void {
   }
@@ -133,7 +149,7 @@ export class TaskHomeComponent implements OnInit {
 
   launchMoveTaskDialog() {
     // TODO: should filter itself
-    const dialogRef = this.dialog.open(MoveTaskComponent, {data: {lists: this.lists}, width: '20rem', height: '10rem'});
+    // const dialogRef = this.dialog.open(MoveTaskComponent, {data: {lists: this.lists}, width: '20rem', height: '10rem'});
   }
 
   launchUpdateTaskDialog(task: any) {
@@ -141,20 +157,27 @@ export class TaskHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: 'Edit Task', task: task}})
   }
 
-  launchConfirmDialog() {
+  launchConfirmDialog(taskList: TaskListModal) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent,
       {data: {title: 'Delete Task', content: 'Are you sure to delete task'}});
-    dialogRef.afterClosed().subscribe(console.log);
+    dialogRef.afterClosed()
+      .take(1)
+      .filter(n => n)
+      .subscribe(result => this.store.dispatch(deleteTaskListAction({taskList})));
   }
 
-  launchEditTaskListDialog() {
-    const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: 'Edit Task List'}});
-    dialogRef.afterClosed().subscribe(console.log);
+  launchEditTaskListDialog(taskList: TaskListModal) {
+    const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: 'Edit Task List', taskList: taskList}});
+    dialogRef.afterClosed()
+      .take(1)
+      .subscribe(result => this.store.dispatch(updateTaskListAction({...result, id: taskList.id})));
   }
 
-  launchNewTaskListDialog() {
+  launchNewTaskListDialog(ev: Event) {
     const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: 'New Task List'}});
-    dialogRef.afterClosed().subscribe(console.log);
+    dialogRef.afterClosed()
+      .take(1)
+      .subscribe(result => this.store.dispatch(addTaskListAction({...result})));
   }
 
   handleMove(srcData: Record<string, any>, list: any) {

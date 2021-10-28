@@ -1,12 +1,12 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <h2 mat-dialog-title>{{title}}</h2>
   <div mat-dialog-content>
     <mat-form-field class="full-wide" floatLabel="auto" hintLabel="list name required">
-      <input type="text" matInput placeholder="task list name">
+      <input type="text" matInput placeholder="task list name" formControlName="name">
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button type="button" mat-raised-button color="primary" (click)="onSave()">Save</button>
+    <button type="button" mat-raised-button color="primary"[disabled]="!form.valid">Save</button>
     <button type="button" mat-raised-button mat-dialog-close>Close</button>
   </div>
 </form>

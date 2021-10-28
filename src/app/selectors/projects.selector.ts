@@ -1,11 +1,7 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store';
-import {AppState} from './app.state';
-import { ProjectsState } from '../reducers/project.reducer';
-import {ProjectModal} from '../domain';
-import {EntityState} from '@ngrx/entity'
 import * as fromProjects from '../reducers/project.reducer';
 
-export const getProjectsState = createFeatureSelector<ProjectsState>(
+export const getProjectsState = createFeatureSelector<fromProjects.ProjectsState>(
   'projects'
 );
 

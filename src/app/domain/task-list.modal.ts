@@ -2,6 +2,6 @@ export interface TaskListModal {
   id?: string;
   name: string;
   order: number;
-  taskIds: string[];
+  taskIds?: string[];
   projectId: string;
 }

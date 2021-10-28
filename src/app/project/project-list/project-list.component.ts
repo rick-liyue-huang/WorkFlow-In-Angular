@@ -15,6 +15,7 @@ import {
   addProjectAction,
   deleteProjectAction,
   loadProjectAction,
+  selectProjectDetailAction,
   updateProjectAction
 } from '../../actions/project.action';
 import {selectAll, selectEntities, selectIds} from '../../selectors/projects.selector';
@@ -221,6 +222,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
     // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
     this.cd.markForCheck();
+  }
+
+  selectProject(project: ProjectModal) {
+    this.store.dispatch(selectProjectDetailAction({project}))
   }
 
   // get thumb image

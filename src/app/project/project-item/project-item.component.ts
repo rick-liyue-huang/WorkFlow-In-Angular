@@ -27,6 +27,8 @@ export class ProjectItemComponent implements OnInit {
   @Output() edit = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
 
+  @Output() onSelected = new EventEmitter<void>()
+
   // can be acted as [@card]='cardState in parent template
   @HostBinding('@card') cardState = 'out';
 
@@ -45,16 +47,23 @@ export class ProjectItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openInviteMemberDialog() {
+  openInviteMemberDialog(ev: Event) {
+    ev.stopPropagation();
     this.invite.emit();
   }
 
-  onEditClick() {
+  onEditClick(ev: Event) {
+    ev.stopPropagation();
     this.edit.emit();
   }
 
-  onDeleteClick() {
+  onDeleteClick(ev: Event) {
+    ev.stopPropagation();
     this.delete.emit();
+  }
+
+  onCardClick() {
+    this.onSelected.emit();
   }
 
 }
