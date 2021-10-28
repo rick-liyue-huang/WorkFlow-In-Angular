@@ -121,17 +121,6 @@
   ],
   "projects": [
     {
-      "id": "Sk2HaTagb",
-      "name": "问题跟踪系统1",
-      "desc": "用于 Bug 的内部跟踪和管理1",
-      "coverImg": "/assets/img/covers/1.jpg",
-      "members": [
-        "37489e0c-df34-c261-71c4-ce75357e3035",
-        "BkkDvwee-"
-      ],
-      "taskFilterId": "Bkm8XZcta-"
-    },
-    {
       "name": "sdsdf",
       "desc": "asfd",
       "coverImg": "/assets/img/covers/15_tn.jpg",
@@ -180,79 +169,9 @@
       "id": "f6adgLA"
     }
   ],
-  "taskLists": [
-    {
-      "name": "Ready",
-      "projectId": "Sk2HaTagb",
-      "order": 1,
-      "id": "BkenST66lb"
-    },
-    {
-      "name": "Completed",
-      "projectId": "Sk2HaTagb",
-      "order": 3,
-      "id": "SkG3Ba6Tgb"
-    }
-  ],
-  "tasks": [
-    {
-      "desc": "吃晚餐",
-      "taskListId": "BkenST66lb",
-      "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "completed": true,
-      "participantIds": [
-        "BkkDvwee-",
-        "37489e0c-df34-c261-71c4-ce75357e3035"
-      ],
-      "dueDate": null,
-      "reminder": null,
-      "createDate": "2017-05-17T14:10:01.159Z",
-      "priority": 3,
-      "order": 1,
-      "remark": "",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "desc": "赶快出发去万达",
-      "taskListId": "SkG3Ba6Tgb",
-      "ownerId": "37489e0c-df34-c261-71c4-ce75357e3035",
-      "completed": false,
-      "participantIds": [
-        "37489e0c-df34-c261-71c4-ce75357e3035"
-      ],
-      "dueDate": "2017-06-12T16:00:00.000Z",
-      "reminder": "2017-07-18T16:00:00.000Z",
-      "createDate": "2017-05-19T10:03:58.794Z",
-      "priority": 2,
-      "order": 2,
-      "remark": "something"
-    },
-    {
-      "id": "3",
-      "desc": "什么情况啊",
-      "taskListId": "SkG3Ba6Tgb",
-      "ownerId": "BkkDvwee-",
-      "completed": false,
-      "participantIds": [],
-      "dueDate": "2017-06-15T16:00:00.000Z",
-      "reminder": "2017-06-21T16:00:00.000Z",
-      "createDate": "2017-05-23T08:21:04.445Z",
-      "priority": 1,
-      "remark": ""
-    }
-  ],
-  "taskFilter": [
-    {
-      "id": "Bkm8XZcta-",
-      "projectId": "Sk2HaTagb",
-      "sort": "priorityDesc",
-      "hasOwner": false,
-      "hasDueDate": false,
-      "hasCreateDate": true,
-      "hasPriority": true
-    }
-  ],
+  "taskLists": [],
+  "tasks": [],
+  "taskFilter": [],
   "taskHistory": [
     {
       "taskId": "3",

@@ -9,7 +9,15 @@ import {ProjectModal} from '../../domain';
 import {ProjectService} from '../../services/project.service';
 import * as _ from 'lodash';
 import {switchMap} from 'rxjs/operators';
-import {Subscription} from 'rxjs-compat';
+import {Observable, Subscription} from 'rxjs-compat';
+import { Store } from '@ngrx/store';
+import {
+  addProjectAction,
+  deleteProjectAction,
+  loadProjectAction,
+  updateProjectAction
+} from '../../actions/project.action';
+import {selectAll, selectEntities, selectIds} from '../../selectors/projects.selector';
 
 @Component({
   selector: 'app-project-list',
@@ -49,6 +57,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   // TODO: [@list]="projects.length" has some warning when not loading projects form server
   projects!: ProjectModal[];
 
+  projects$!: Observable<ProjectModal[]>;
+  listAnim$!: Observable<number>;
+  ids$!: Observable<string[]>
+
   sub!: Subscription;
 
   @HostBinding('@route') state: any;
@@ -57,23 +69,36 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   constructor(
     private dialog: MatDialog,
     private cd: ChangeDetectorRef,
-    private service: ProjectService
-  ) { }
+    private service: ProjectService,
+    private store: Store
+  ) {
+    // get projects from store
+    this.store.dispatch(loadProjectAction());
+
+    this.projects$ = this.store.select(selectAll);
+    this.listAnim$  =  this.projects$.map(p => p?.length)!;
+    this.projects$.subscribe(projects => {
+      console.log('projects: ', projects);
+    });
+
+
+
+  }
 
   ngOnInit(): void {
-    this.sub = this.service.get('BkkDvwee-').subscribe(projects => {
+    /*this.sub = this.service.get('BkkDvwee-').subscribe(projects => {
       this.projects = projects;
       console.log('projects: ', projects);
       //  check dirty value
       this.cd.markForCheck();
-    });
-    console.log(this.projects)
+    });*/
+
   }
 
   ngOnDestroy() {
-    if (this.sub)  {
+    /*if (this.sub)  {
       this.sub.unsubscribe();
-    }
+    }*/
   }
 
   launchNewProjectDialog() {
@@ -90,7 +115,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       {width: '30rem', height: '36rem',
         data: {thumbnails: this.getThumbnails(), img: selectedImg} /*position: {left: '0', top: '0'}*/});
 
-    newProjectRef.afterClosed()
+    /*newProjectRef.afterClosed()
       .take(1)  // similar as unsubscribe() after once
       .filter(n => n)  // to deal with the un null or un undefined
       .map(val => ({...val, coverImg: this.getbuildImgSrc(val.coverImg)}))
@@ -103,12 +128,16 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.cd.markForCheck();
 
       // TODO: match the projectModal pattern
-      /*this.projects = [...this.projects,
-        {id: '4', name: 'new Project 1', desc: 'new project desc 1', coverImg: 'assets/img/covers/6.jpg'},
-        {id: '5', name: 'new Project 2', desc: 'new project desc 2', coverImg: 'assets/img/covers/6.jpg'}
-      ];*/
-    });
 
+    });*/
+
+    newProjectRef.afterClosed()
+      .take(1)  // similar as unsubscribe() after once
+      .filter(n => n)  // to deal with the un null or un undefined
+      .map(val => ({...val, coverImg: this.getbuildImgSrc(val.coverImg)}))
+      .subscribe(project => {
+        this.store.dispatch(addProjectAction({project}))
+      });
 
   }
 
@@ -119,12 +148,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       {data: {members: []}});
   }
 
-  launchEditProjectDialog(project: ProjectModal) {
+  /*launchEditProjectDialog(project: ProjectModal) {
 
     const newProjectRef = this.dialog.open(NewProjectComponent,
       // TODO: 'dark' need to be switched automatically
       {width: '30rem', height: '36rem',
-        data: {thumbnails: this.getThumbnails(), project: project} /*position: {left: '0', top: '0'}*/});
+        data: {thumbnails: this.getThumbnails(), project: project} /!*position: {left: '0', top: '0'}*!/});
 
     newProjectRef.afterClosed()
       .take(1)  // similar as unsubscribe() after once
@@ -140,15 +169,31 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.cd.markForCheck();
 
         // TODO: match the projectModal pattern
-        /*this.projects = [...this.projects,
+        /!*this.projects = [...this.projects,
           {id: '4', name: 'new Project 1', desc: 'new project desc 1', coverImg: 'assets/img/covers/6.jpg'},
           {id: '5', name: 'new Project 2', desc: 'new project desc 2', coverImg: 'assets/img/covers/6.jpg'}
-        ];*/
+        ];*!/
+      });
+  }*/
+
+  launchEditProjectDialog(project: ProjectModal) {
+
+    const newProjectRef = this.dialog.open(NewProjectComponent,
+      // TODO: 'dark' need to be switched automatically
+      {width: '30rem', height: '36rem',
+        data: {thumbnails: this.getThumbnails(), project: project} /*position: {left: '0', top: '0'}*/});
+
+    newProjectRef.afterClosed()
+      .take(1)  // similar as unsubscribe() after once
+      .filter(n => n)
+      .map(val => ({...val, id: project.id,  coverImg: this.getbuildImgSrc(val.coverImg)}))
+      .subscribe(project => {
+        this.store.dispatch(updateProjectAction({project}))
       });
   }
 
   //  TODO: cannot change image when edit or create project
-  launchConfirmDialog(project: ProjectModal) {
+  /*launchConfirmDialog(project: ProjectModal) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent,
       {data: {title: 'Delete Project', content: 'Are you sure to delete project'}});
     dialogRef.afterClosed()
@@ -159,6 +204,20 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       console.log(proj);
       this.projects = this.projects?.filter(p => p.id !== proj.id);
     });
+
+    // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
+    this.cd.markForCheck();
+  }*/
+
+  launchConfirmDialog(project: ProjectModal) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,
+      {data: {title: 'Delete Project', content: 'Are you sure to delete project'}});
+    dialogRef.afterClosed()
+      .take(1)
+      .filter(n => n)
+      .subscribe(_ => {
+        this.store.dispatch(deleteProjectAction({project}))
+      });
 
     // match with 'changeDetection: ChangeDetectionStrategy.OnPush'
     this.cd.markForCheck();

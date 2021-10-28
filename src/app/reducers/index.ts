@@ -13,6 +13,7 @@ import {quoteSuccessReducer} from './quote.reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {authReducer} from './auth.reducer';
+import {projectsReducer} from './project.reducer';
 
 
 
@@ -21,6 +22,7 @@ import {authReducer} from './auth.reducer';
     StoreModule.forRoot({
       quote: quoteSuccessReducer,
       auth: authReducer,
+      projects: projectsReducer
     }),
     StoreDevtoolsModule.instrument({}),
     StoreRouterConnectingModule.forRoot()

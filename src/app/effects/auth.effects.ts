@@ -1,8 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-import { QuoteService } from '../services/quote.service';
-import {Observable} from 'rxjs-compat';
-import {quoteAction, quoteFailureAction, quoteSuccessAction} from '../actions/quote.action';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {tap} from 'rxjs/operators';
@@ -17,7 +14,7 @@ import {
 import {UserModal} from '../domain';
 import {Router} from '@angular/router';
 import * as routerActions from '../actions/router.action';
-import {routerNavigatedAction} from '@ngrx/router-store';
+
 
 @Injectable()
 export class AuthEffects {

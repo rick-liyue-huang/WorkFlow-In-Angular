@@ -1,7 +1,9 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {ProjectModal} from '../domain';
+import {ProjectModal, UserModal} from '../domain';
 import {Observable} from 'rxjs-compat';
+import { mergeMap, count, switchMap, map } from 'rxjs/operators';
+import * as _ from 'lodash';
 
 @Injectable()
 export class ProjectService {
@@ -18,7 +20,7 @@ export class ProjectService {
 
   //  POST
   add(project: ProjectModal): Observable<ProjectModal> {
-    project.id = undefined;
+    // project.id = undefined;
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http
       .post(uri, JSON.stringify(project), {headers: this.headers}) as Observable<ProjectModal>
@@ -57,4 +59,24 @@ export class ProjectService {
       .get(uri, {params: {'members_like': userId}})
       .map(res => res as ProjectModal[])
   }
+
+  invite(projectId: string, users: UserModal[]): Observable<ProjectModal> {
+    const uri = `${this.config.uri}/${this.domain}/${projectId}`;
+
+    return this.http
+      .get(uri)
+      .map(res => res as ProjectModal)
+      .switchMap((project: ProjectModal) => {
+        const existingMembers = project.members;
+        const invitedIds = users.map(user => user.id);
+        const newIds = _.union(existingMembers, invitedIds)
+        return this.http
+          .patch(uri, JSON.stringify({member: newIds}), {headers: this.headers})
+          .map(res => res as ProjectModal)
+      })
+
+
+
+  }
+
 }

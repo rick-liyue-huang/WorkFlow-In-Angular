@@ -1,5 +1,5 @@
 export interface ProjectModal {
-  id?: string;
+  id: string;
   name: string;
   desc?: string;
   coverImg: string;
